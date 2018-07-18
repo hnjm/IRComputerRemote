@@ -25,4 +25,17 @@ OFF: 407F40BF
 
 Darker: 40708F7
 
-Brighter: 407F906F 
+Brighter: 407F906F
+
+## Source Code
+
+Arduino receive computer command via serial interface, and control light bulb via IR led.
+Arduino receive IR remote control commands, and control the computer sound volume via serial interface.
+
+#### Arduino
+
+Install Arduino-IRremote library.
+https://github.com/z3t0/Arduino-IRremote
+
+#### Computer
+
