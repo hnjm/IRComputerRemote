@@ -1,11 +1,12 @@
 #include "SerialInterface.h"
+#include <string>
 
-int SerialInterface::Init() {
-  std::cout << tty << std::endl;
+int SerialInterface::Init(const std::string _tty) {
+  std::cout << _tty << std::endl;
   // Open the file descriptor in non-blocking mode
-  fileDescriptor = open(tty, O_RDWR | O_NOCTTY);
+  fileDescriptor = open(_tty.c_str(), O_RDWR | O_NOCTTY);
   if (fileDescriptor < 0) {
-    std::cout << "Failed to open barcode reader port on " << tty << std::endl;
+    std::cout << "Failed to open barcode reader port on " << _tty << std::endl;
     return -1;
   }
 
@@ -60,6 +61,6 @@ int SerialInterface::Write(char* _buffer, int _length) {
   return write(fileDescriptor, _buffer, _length);
 }
 
-int SerialInterface::ReadBarCode(char *_buffer, int _length){
+int SerialInterface::Read(char *_buffer, int _length){
   return read(fileDescriptor, _buffer, _length);
 }

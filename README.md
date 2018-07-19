@@ -39,3 +39,9 @@ https://github.com/z3t0/Arduino-IRremote
 
 #### Computer
 
+Compilation:
+
+```
+g++ -std=c++11 SerialInterface.cpp main.cpp -o test
+
+```

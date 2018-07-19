@@ -16,15 +16,13 @@ class SerialInterface
     SerialInterface() = default;
     ~SerialInterface() = default;
   private:
-    int barCode = -1;
     int fileDescriptor = -1;
-    char tty[1024] = "/dev/ttyACM0";
 
   private:
     void CleanBuffer();
   public:
-    int Init();
-    int ReadBarCode(char *_barCode, int _length);
+    int Init(const std::string _tty);
+    int Read(char *_buffer, int _length);
     int Write(char *_buffer, int _length);
 };
 
